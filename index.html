@@ -81,10 +81,25 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(26, 35, 50, 0.8)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="neural" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2300f5ff" opacity="0.3"/><line x1="10" y1="10" x2="20" y2="0" stroke="%2300f5ff" opacity="0.1"/><line x1="10" y1="10" x2="0" y2="20" stroke="%2300f5ff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23neural)"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="geometric" width="60" height="60" patternUnits="userSpaceOnUse"><polygon points="30,5 55,25 30,45 5,25" fill="none" stroke="%2300f5ff" stroke-width="0.5" opacity="0.3"/><polygon points="15,15 45,15 45,45 15,45" fill="none" stroke="%2300d4aa" stroke-width="0.3" opacity="0.2"/><circle cx="30" cy="30" r="8" fill="none" stroke="%23ff6b9d" stroke-width="0.3" opacity="0.2"/><line x1="0" y1="30" x2="60" y2="30" stroke="%2300f5ff" stroke-width="0.2" opacity="0.1"/><line x1="30" y1="0" x2="30" y2="60" stroke="%2300f5ff" stroke-width="0.2" opacity="0.1"/></pattern></defs><rect width="200" height="200" fill="url(%23geometric)"/></svg>');
+            background-size: 400px 400px, 120px 120px;
+            background-position: center, 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><polygon points="100,50 200,100 150,200 50,150" fill="%2300f5ff" opacity="0.05"/><polygon points="250,80 350,130 300,230 200,180" fill="%2300d4aa" opacity="0.04"/><polygon points="80,250 180,300 130,400 30,350" fill="%23ff6b9d" opacity="0.03"/><polygon points="300,250 400,300 350,400 250,350" fill="%2300f5ff" opacity="0.04"/></svg>');
+            background-size: 800px 800px;
+            background-position: -200px -200px;
+            pointer-events: none;
         }
         
         .hero h1 {
@@ -161,8 +176,10 @@
         .era-section {
             padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="25" height="25" patternUnits="userSpaceOnUse"><rect x="10" y="10" width="5" height="5" fill="%2300d4aa" opacity="0.2"/><line x1="12.5" y1="0" x2="12.5" y2="25" stroke="%2300d4aa" opacity="0.1"/><line x1="0" y1="12.5" x2="25" y2="12.5" stroke="%2300d4aa" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="circuit" width="50" height="50" patternUnits="userSpaceOnUse"><rect x="20" y="20" width="10" height="10" fill="%2300d4aa" opacity="0.3"/><line x1="25" y1="0" x2="25" y2="50" stroke="%2300d4aa" stroke-width="0.5" opacity="0.2"/><line x1="0" y1="25" x2="50" y2="25" stroke="%2300d4aa" stroke-width="0.5" opacity="0.2"/><circle cx="25" cy="25" r="15" fill="none" stroke="%2300f5ff" stroke-width="0.3" opacity="0.15"/></pattern></defs><rect width="200" height="200" fill="url(%23circuit)"/></svg>');
+            background-size: 600px 600px, 100px 100px;
+            position: relative;
         }
         
         .era-section h2 {
@@ -285,8 +302,10 @@
         .maker-era {
             padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="maker" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="%23ff6b9d" opacity="0.3"/><circle cx="15" cy="15" r="8" fill="none" stroke="%23ff6b9d" opacity="0.1"/><circle cx="15" cy="15" r="12" fill="none" stroke="%23ff6b9d" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23maker)"/></svg>');
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="maker" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="4" fill="%23ff6b9d" opacity="0.4"/><circle cx="30" cy="30" r="15" fill="none" stroke="%23ff6b9d" stroke-width="0.5" opacity="0.2"/><circle cx="30" cy="30" r="25" fill="none" stroke="%2300f5ff" stroke-width="0.3" opacity="0.1"/><polygon points="30,10 50,30 30,50 10,30" fill="none" stroke="%2300d4aa" stroke-width="0.4" opacity="0.2"/></pattern></defs><rect width="200" height="200" fill="url(%23maker)"/></svg>');
+            background-size: 500px 500px, 120px 120px;
+            position: relative;
         }
         
         .maker-era h2 {
@@ -323,8 +342,10 @@
         .convergence {
             padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(26, 35, 50, 0.8)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="convergence" width="35" height="35" patternUnits="userSpaceOnUse"><polygon points="17.5,5 30,17.5 17.5,30 5,17.5" fill="%2300f5ff" opacity="0.1"/><circle cx="17.5" cy="17.5" r="10" fill="none" stroke="%2300f5ff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23convergence)"/></svg>');
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="convergence" width="70" height="70" patternUnits="userSpaceOnUse"><polygon points="35,10 60,35 35,60 10,35" fill="%2300f5ff" opacity="0.15"/><circle cx="35" cy="35" r="20" fill="none" stroke="%2300f5ff" stroke-width="0.5" opacity="0.1"/><polygon points="35,5 65,25 35,45 5,25" fill="none" stroke="%2300d4aa" stroke-width="0.4" opacity="0.2"/></pattern></defs><rect width="200" height="200" fill="url(%23convergence)"/></svg>');
+            background-size: 400px 400px, 140px 140px;
+            position: relative;
         }
         
         .convergence h2 {
@@ -386,8 +407,10 @@
         .movement {
             padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="movement" width="40" height="40" patternUnits="userSpaceOnUse"><polygon points="20,5 35,15 20,25 5,15" fill="%2300f5ff" opacity="0.1"/><circle cx="20" cy="20" r="15" fill="none" stroke="%2300f5ff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23movement)"/></svg>');
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="movement" width="80" height="80" patternUnits="userSpaceOnUse"><polygon points="40,10 70,30 40,50 10,30" fill="%2300f5ff" opacity="0.12"/><circle cx="40" cy="40" r="30" fill="none" stroke="%2300f5ff" stroke-width="0.4" opacity="0.15"/><polygon points="40,5 75,25 40,45 5,25" fill="none" stroke="%23ff6b9d" stroke-width="0.3" opacity="0.2"/></pattern></defs><rect width="200" height="200" fill="url(%23movement)"/></svg>');
+            background-size: 500px 500px, 160px 160px;
+            position: relative;
         }
         
         .movement h2 {
