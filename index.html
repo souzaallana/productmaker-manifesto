@@ -81,9 +81,29 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: #1a2332;
+            background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(26, 35, 50, 0.8)),
+                        url('./public/images/neural_network_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             padding: 8rem 2rem 4rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
         }
         
         .hero h1 {
