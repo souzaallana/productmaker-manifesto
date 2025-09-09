@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Maker | Formação de profissionais que constroem o futuro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1a2332;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: #00f5ff;
+            color: #000000;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #ff6b9d;
+            border: 2px solid #ff6b9d;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #1a2332;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #00f5ff;
+        }
+        
+        .hero h2 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #00f5ff;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+        
+        .hero .highlight {
+            color: #00f5ff;
+            font-weight: 700;
+        }
+        
+        .hero .pink-text {
+            color: #ff6b9d;
+            font-weight: 700;
+            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+            margin-top: 2rem;
+        }
+        
+        /* Technology Cards */
+        .tech-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card.cyan { border-color: #00f5ff; }
+        .tech-card.green { border-color: #00d4aa; }
+        .tech-card.pink { border-color: #ff6b9d; }
+        .tech-card.blue { border-color: #00f5ff; }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+        }
+        
+        .tech-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: inherit;
+        }
+        
+        .tech-card.cyan h3 { color: #00f5ff; }
+        .tech-card.green h3 { color: #00d4aa; }
+        .tech-card.pink h3 { color: #ff6b9d; }
+        .tech-card.blue h3 { color: #00f5ff; }
+        
+        .tech-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Section with background */
+        .section-bg {
+            background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(26, 35, 50, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="neural" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%2300f5ff" opacity="0.3"/><line x1="10" y1="10" x2="20" y2="0" stroke="%2300f5ff" opacity="0.2"/><line x1="10" y1="10" x2="0" y2="20" stroke="%2300f5ff" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23neural)"/></svg>');
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        
+        .section-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .highlight-text {
+            color: #00d4aa;
+            font-weight: 700;
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+            margin: 2rem 0;
+        }
+        
+        /* Blocks Section */
+        .blocks-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .block-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .block-card.teoria { border-color: #00f5ff; }
+        .block-card.execucao { border-color: #00d4aa; }
+        .block-card.estrategia { border-color: #ff6b9d; }
+        
+        .block-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .block-card.teoria .block-number { color: #00f5ff; }
+        .block-card.execucao .block-number { color: #00d4aa; }
+        .block-card.estrategia .block-number { color: #ff6b9d; }
+        
+        .block-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .block-card.teoria .block-title { color: #00f5ff; }
+        .block-card.execucao .block-title { color: #00d4aa; }
+        .block-card.estrategia .block-title { color: #ff6b9d; }
+        
+        .block-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        
+        .block-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .block-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .limitation {
+            color: #ff4757;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        /* Maker Era Section */
+        .maker-era {
+            background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M0,12.5 L25,12.5 M12.5,0 L12.5,25" stroke="%2300f5ff" opacity="0.1" stroke-width="0.5"/><circle cx="12.5" cy="12.5" r="2" fill="%2300f5ff" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .maker-points {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .maker-point {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .maker-point strong {
+            font-size: 1.2rem;
+        }
+        
+        .maker-point.pensa strong { color: #00f5ff; }
+        .maker-point.constroi strong { color: #00d4aa; }
+        .maker-point.conecta strong { color: #ff6b9d; }
+        
+        /* Convergence Section */
+        .convergence {
+            background: linear-gradient(rgba(26, 35, 50, 0.8), rgba(26, 35, 50, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="network" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1.5" fill="%2300f5ff" opacity="0.4"/><line x1="15" y1="15" x2="30" y2="0" stroke="%2300f5ff" opacity="0.2"/><line x1="15" y1="15" x2="0" y2="30" stroke="%2300f5ff" opacity="0.2"/><line x1="15" y1="15" x2="30" y2="30" stroke="%2300f5ff" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23network)"/></svg>');
+            padding: 4rem 2rem;
+        }
+        
+        .convergence-items {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+        
+        .convergence-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .convergence-item.ia { border-left: 4px solid #00f5ff; }
+        .convergence-item.plataformas { border-left: 4px solid #00d4aa; }
+        .convergence-item.cloud { border-left: 4px solid #ff6b9d; }
+        .convergence-item.community { border-left: 4px solid #00f5ff; }
+        
+        /* Movement Section */
+        .movement {
+            background: linear-gradient(rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="movement" width="40" height="40" patternUnits="userSpaceOnUse"><polygon points="20,5 35,15 20,25 5,15" fill="%2300f5ff" opacity="0.1"/><circle cx="20" cy="20" r="15" fill="none" stroke="%2300f5ff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23movement)"/></svg>');
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .movement-items {
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+        
+        .movement-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .movement-item.questionam { border-left: 4px solid #00f5ff; }
+        .movement-item.constroem { border-left: 4px solid #00d4aa; }
+        .movement-item.conectam { border-left: 4px solid #ff6b9d; }
+        .movement-item.antecipam { border-left: 4px solid #00f5ff; }
+        .movement-item.expandem { border-left: 4px solid #00d4aa; }
+        
+        .movement-item strong {
+            color: inherit;
+        }
+        
+        .movement-item.questionam strong { color: #00f5ff; }
+        .movement-item.constroem strong { color: #00d4aa; }
+        .movement-item.conectam strong { color: #ff6b9d; }
+        .movement-item.antecipam strong { color: #00f5ff; }
+        .movement-item.expandem strong { color: #00d4aa; }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(rgba(26, 35, 50, 0.95), rgba(26, 35, 50, 0.95)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="final" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="none" stroke="%2300f5ff" opacity="0.1"/><circle cx="25" cy="25" r="2" fill="%2300f5ff" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23final)"/></svg>');
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            color: #00f5ff;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 2rem;
+        }
+        
+        .final-cta p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .final-cta .highlight {
+            color: #00f5ff;
+            font-weight: 700;
+        }
+        
+        .final-cta .btn {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 8rem 1rem 2rem;
+            }
+            
+            .tech-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .blocks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .maker-points {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Product Maker</div>
+        <div class="header-buttons">
+            <a href="#" class="btn btn-primary">Junte-se ao Movimento</a>
+            <a href="#" class="btn btn-secondary">Conheça os Cursos</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>A Revolução</h1>
+        <h2>acontece agora</h2>
+        <p>Estamos vivendo <span class="highlight">a maior revolução de todos os tempos</span> onde cada novo ciclo se <span class="highlight">acumula</span> ao anterior, criando mudanças exponenciais que reorganizam tudo em velocidade jamais vista.</p>
+        <p class="pink-text">A mudança é exponencial e ela acontece AGORA.</p>
+        
+        <div class="tech-cards">
+            <div class="tech-card cyan">
+                <h3>Inteligência Artificial</h3>
+                <p><strong>REDEFINE</strong> o que é trabalho cognitivo</p>
+            </div>
+            <div class="tech-card green">
+                <h3>Plataformas</h3>
+                <p><strong>Reorganizam</strong> indústrias inteiras overnight</p>
+            </div>
+            <div class="tech-card pink">
+                <h3>Dados</h3>
+                <p><strong>Demonstram</strong> quem é quem</p>
+            </div>
+            <div class="tech-card blue">
+                <h3>Automação</h3>
+                <p><strong>Elimina</strong> o trabalho superficial e premia a criatividade profunda</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Era dos Superficiais -->
+    <section class="section-bg">
+        <h2 class="section-title">A era dos superficiais acabou</h2>
+        <p class="section-subtitle">Não por escolha, mas por <span class="highlight">necessidade evolutiva</span>.</p>
+        <p>As tecnologias irão substituir quem só fala. As grandes empresas estão premiando quem constrói. Dados estão expondo quem não sabe o que faz.</p>
+        <p class="highlight-text">Sobrevivem apenas os MAKERS.</p>
+    </section>
+
+    <!-- 3 Blocos -->
+    <section class="blocks-section">
+        <h2 class="section-title">Os 3 Blocos das competências makers</h2>
+        <p class="section-subtitle">Na era pré-revolução, as pessoas se especializavam em <span class="highlight">um</span> desses blocos:</p>
+        
+        <div class="blocks-grid">
+            <div class="block-card teoria">
+                <div class="block-number">1</div>
+                <div class="block-title">BLOCO TEORIA</div>
+                <div class="block-subtitle">Pensadores</div>
+                <ul class="block-list">
+                    <li>• Conhecimento acadêmico sólido</li>
+                    <li>• Fundamentos e primeiros princípios</li>
+                    <li>• Capacidade analítica refinada</li>
+                </ul>
+                <div class="limitation">LIMITAÇÃO:<br>Só pensam, não executam</div>
+            </div>
+            
+            <div class="block-card execucao">
+                <div class="block-number">2</div>
+                <div class="block-title">BLOCO EXECUÇÃO</div>
+                <div class="block-subtitle">Executores</div>
+                <ul class="block-list">
+                    <li>• Vivência técnica real</li>
+                    <li>• Capacidade de materialização</li>
+                    <li>• Foco em entregáveis mensuráveis</li>
+                </ul>
+                <div class="limitation">LIMITAÇÃO:<br>Só fazem, não pensam estrategicamente</div>
+            </div>
+            
+            <div class="block-card estrategia">
+                <div class="block-number">3</div>
+                <div class="block-title">BLOCO ESTRATÉGIA</div>
+                <div class="block-subtitle">Visionários</div>
+                <ul class="block-list">
+                    <li>• Pensamento sistêmico</li>
+                    <li>• Visão de longo prazo</li>
+                    <li>• Compreensão de efeitos de rede em um mundo conectado</li>
+                </ul>
+                <div class="limitation">LIMITAÇÃO:<br>Só planejam, não implementam</div>
+            </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 3rem; font-size: 1.2rem;">Cada bloco sozinho é insuficiente no mundo exponencial.</p>
+    </section>
+
+    <!-- A Era Maker -->
+    <section class="maker-era">
+        <h2 class="section-title">A era maker</h2>
+        <p class="section-subtitle">O <span class="highlight">MAKER</span> é a pessoa rara que domina a <span class="highlight">interseção dos três blocos</span>:</p>
+        
+        <div class="maker-points">
+            <div class="maker-point pensa">
+                <strong>Pensa</strong> com fundamentos profundos
+            </div>
+            <div class="maker-point constroi">
+                <strong>Constrói</strong> com execução impecável
+            </div>
+            <div class="maker-point conecta">
+                <strong>Conecta</strong> com visão sistêmica
+            </div>
+        </div>
+        
+        <p class="highlight-text">Esta combinação cria um superpoder exponencial.</p>
+        
+        <p>Enquanto especialistas disputam territórios, <strong style="color: #00d4aa;">MAKERS orquestram soluções</strong>.</p>
+        <p>Enquanto teóricos debatem conceitos, <strong style="color: #00d4aa;">MAKERS validam com entregáveis</strong>.</p>
+        <p>Enquanto executores otimizam processos, <strong style="color: #ff6b9d;">MAKERS redesenham os sistemas</strong>.</p>
+    </section>
+
+    <!-- Convergência Exponencial -->
+    <section class="convergence">
+        <h2 class="section-title">A convergência exponencial</h2>
+        <p class="section-subtitle">Vivemos o momento onde <span class="highlight">todas as tecnologias se amplificam mutuamente</span>:</p>
+        
+        <div class="convergence-items">
+            <div class="convergence-item ia">
+                <strong style="color: #00f5ff;">IA + Automação</strong> = Trabalho cognitivo redefinido
+            </div>
+            <div class="convergence-item plataformas">
+                <strong style="color: #00d4aa;">Plataformas + Dados</strong> = Efeitos de rede mensuráveis
+            </div>
+            <div class="convergence-item cloud">
+                <strong style="color: #ff6b9d;">Cloud + APIs</strong> = Infraestrutura infinitamente composável
+            </div>
+            <div class="convergence-item community">
+                <strong style="color: #00f5ff;">Community + Commerce</strong> = Economias descentralizadas
+            </div>
+        </div>
+        
+        <p><strong>Quem pensa linear</strong> tenta entender uma tecnologia por vez.</p>
+        <p class="highlight-text">MAKERS orquestram múltiplas tecnologias para criar soluções impossíveis.</p>
+    </section>
+
+    <!-- O Movimento Maker -->
+    <section class="movement">
+        <h2 class="section-title">O movimento maker</h2>
+        <p class="section-subtitle">Este não é apenas um manifesto. <span class="highlight">É um movimento.</span></p>
+        <p>Um movimento de pessoas que:</p>
+        
+        <div class="movement-items">
+            <div class="movement-item questionam">
+                <strong>Questionam</strong> ao invés de aceitar
+            </div>
+            <div class="movement-item constroem">
+                <strong>Constroem</strong> ao invés de especular
+            </div>
+            <div class="movement-item conectam">
+                <strong>Conectam</strong> ao invés de competir
+            </div>
+            <div class="movement-item antecipam">
+                <strong>Antecipam</strong> ao invés de reagir
+            </div>
+            <div class="movement-item expandem">
+                <strong>Expandem conhecimento</strong> como forma de subversão
+            </div>
+        </div>
+        
+        <p>Somos a escola do amanhã, funcionando hoje.</p>
+        <p>Somos a expansão do conhecimento como revolução silenciosa.</p>
+        <p class="highlight-text">Somos os que constroem o futuro enquanto outros debatem o presente.</p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Junte-se ao movimento</h2>
+        <p>O movimento maker precisa de você. Não como mais um estudante passivo, mas como alguém que vai <span class="highlight">FAZER A DIFERENÇA</span>.</p>
+        <p>Construa o amanhã.</p>
+        <a href="#" class="btn btn-primary">Junte-se ao Movimento</a>
+    </section>
+</body>
+</html>
+
